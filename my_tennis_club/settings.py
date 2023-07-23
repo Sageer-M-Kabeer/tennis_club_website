@@ -46,6 +46,23 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
+
+
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Use database-backed sessions
+SESSION_COOKIE_SECURE = True  # If using HTTPS
+SESSION_COOKIE_HTTPONLY = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = False  # If you want sessions to persist after the browser is closed
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+# settings.py
+
+LOGIN_REDIRECT_URL = 'admin:index'  # Change 'admin:index' to the desired URL
+LOGOUT_REDIRECT_URL = 'admin:login'  # Change 'admin:login' to the desired URL
+
+
 ROOT_URLCONF = 'my_tennis_club.urls'
 
 TEMPLATES = [
